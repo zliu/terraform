@@ -1,0 +1,25 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="terraform" audience="compute" arm="" href="/docs/terraform/index.html"}
+Automating cloud resource provisioning with Terraform 
+
+    {: .navgroup id="learn"}
+    index.md
+    about.md
+    {: .navgroup-end}
+    
+    {: .navgroup id="howto"}
+    setup_cli.md
+    configure_provider.md
+    manage_resources.md
+    {: .navgroup-end}
+    
+    {: .navgroup id="reference"}
+    [IBM Cloud Provider reference](https://ibm-cloud.github.io/tf-ibm-docs/)
+    [Terraform CLI reference](https://www.terraform.io/docs/commands/index.html)
+    {: .navgroup-end}
+    
+    {: .navgroup id="help"}
+    rellinks.md
+    {: .navgroup-end}
