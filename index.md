@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-10-08"
 
 ---
 
@@ -178,6 +178,9 @@ Before you begin, [install the {{site.data.keyword.Bluemix_notm}} CLI ![External
    
 4. Create a Terraform provider configuration file that is named `provider.tf`. Use this file to specify the cloud provider that you want to use and reference the credentials from your `terraform.tfvars` file to access cloud provider resources. 
    ```
+   variable "softlayer_username" {}
+   variable "softlayer_api_key" {}
+
    provider "ibm" {
     region = "us-south"
     softlayer_username = "${var.softlayer_username}"
@@ -202,7 +205,7 @@ The following example shows how to specify and provision a virtual server in {{s
    resource "ibm_compute_vm_instance" "vm1" {
    hostname = "vm1"
    domain = "example.com"
-   os_reference_code = "DEBIAN_7_64"
+   os_reference_code = "DEBIAN_8_64"
    datacenter = "dal09"
    network_speed = 10
    hourly_billing = true
@@ -278,7 +281,7 @@ The following example shows how to specify and provision a virtual server in {{s
          local_disk:                   "false"
          memory:                       "1024"
          network_speed:                "10"
-         os_reference_code:            "DEBIAN_7_64"
+         os_reference_code:            "DEBIAN_8_64"
          private_interface_id:         <computed>
          private_network_only:         "false"
          private_security_group_ids.#: <computed>
@@ -333,7 +336,7 @@ The following example shows how to specify and provision a virtual server in {{s
      local_disk:                 "" => "false"
      memory:                     "" => "1024"
      network_speed:              "" => "10"
-     os_reference_code:          "" => "DEBIAN_7_64"
+     os_reference_code:          "" => "DEBIAN_8_64"
      private_network_only:       "" => "false"
      private_subnet:             "" => "<computed>"
      private_vlan_id:            "" => "<computed>"
@@ -385,7 +388,7 @@ The following example shows how to specify and provision a virtual server in {{s
      memory = 1024
      network_speed = 10
      notes = 
-     os_reference_code = DEBIAN_7_64
+     os_reference_code = DEBIAN_8_64
      private_network_only = false
      private_subnet = 10.120.45.128/26
      private_vlan_id = 2451153
