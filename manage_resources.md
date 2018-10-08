@@ -3,7 +3,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-26"
+lastupdated: "2018-10-06"
 
 ---
 
@@ -46,7 +46,7 @@ Looking for other resource types? Find a complete list of supported resource typ
    resource "ibm_compute_vm_instance" "vm1" {
     hostname = "vm1"
     domain = "example.com"
-    os_reference_code = "DEBIAN_7_64"
+    os_reference_code = "DEBIAN_8_64"
     datacenter = "dal09"
     network_speed = 10
     hourly_billing = true
@@ -122,7 +122,7 @@ Looking for other resource types? Find a complete list of supported resource typ
          local_disk:                   "false"
          memory:                       "1024"
          network_speed:                "10"
-         os_reference_code:            "DEBIAN_7_64"
+         os_reference_code:            "DEBIAN_8_64"
          private_interface_id:         <computed>
          private_network_only:         "false"
          private_security_group_ids.#: <computed>
@@ -179,7 +179,7 @@ Looking for other resource types? Find a complete list of supported resource typ
      local_disk:                 "" => "false"
      memory:                     "" => "1024"
      network_speed:              "" => "10"
-     os_reference_code:          "" => "DEBIAN_7_64"
+     os_reference_code:          "" => "DEBIAN_8_64"
      private_network_only:       "" => "false"
      private_subnet:             "" => "<computed>"
      private_vlan_id:            "" => "<computed>"
@@ -239,7 +239,7 @@ You can update your resources by changing your Terraform configuration file and 
      memory = 1024
      network_speed = 10
      notes = 
-     os_reference_code = CENTOS_7_64
+     os_reference_code = DEBIAN_8_64
      private_interface_id = 35066699
      private_network_only = false
      private_security_group_ids.# = 0
