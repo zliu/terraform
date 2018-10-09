@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-28"
+lastupdated: "2018-10-09"
 
 ---
 
@@ -127,6 +127,12 @@ To prepare your credentials:
    
 3. Create a Terraform provider configuration file that is named `provider.tf`. Use this file to specify the {{site.data.keyword.Bluemix_notm}} provider and reference the credentials from your `terraform.tfvars` file that you want to provide to Terraform.
    ```
+   variable "softlayer_username" {}
+   variable "softlayer_api_key" {}
+   variable "bluemix_api_key" {}
+   variable "org_name" {}
+   variable "space_name {}
+   
    provider "ibm" {
    bluemix_api_key    = "${var.bluemix_api_key}"
    softlayer_username = "${var.softlayer_username}"
