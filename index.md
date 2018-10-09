@@ -401,5 +401,5 @@ The following example shows how to specify and provision a virtual server in {{s
    {: screen}
    
 
-**What's next?**
+**What's next?** </br>
 Now that you provisioned your first virtual server, [explore other {{site.data.keyword.Bluemix_notm}} resources ![External link icon](../icons/launch-glyph.svg "External link icon")](https://ibm-cloud.github.io/tf-ibm-docs/) that you can provision with Terraform. 
