@@ -25,7 +25,7 @@ Use this tutorial to create a highly available Red Hat® OpenShift Container Pla
 
 This tutorial shows how you can set up OpenShift Container Platform 3.9 on top of {{site.data.keyword.Bluemix_notm}} to take advantage of the high availability capabilities of native Kubernetes and {{site.data.keyword.Bluemix_notm}} to create a highly available OpenShift Container Platform 3.9 environment. Review the following image to find an architectural overview of the infrastructure components that are needed for the Red Hat OpenShift Container Platform to work properly.
 
-<img src="images/infra-diagram.png" alt="Infrastructure components for the Red Hat® OpenShift Container Platform on {{site.data.keyword.Bluemix_notm}}" width="800" style="width: 800px; border-style: none"/>
+<img src="../images/infra-diagram.png" alt="Infrastructure components for the Red Hat® OpenShift Container Platform on {{site.data.keyword.Bluemix_notm}}" width="800" style="width: 800px; border-style: none"/>
 
 When you complete this tutorial, the following infrastructure components are provisioned for you: 
 - 1 OpenShift Container Platform master node
