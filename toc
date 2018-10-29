@@ -7,6 +7,10 @@ Automating cloud resource provisioning with Terraform
     {: .navgroup id="learn"}
     index.md
     about.md
+    
+    {: .topicgroup}
+    Tutorials
+        tutorials/install_redhat_openshift.md
     {: .navgroup-end}
     
     {: .navgroup id="howto"}
