@@ -21,7 +21,7 @@ lastupdated: "2018-10-26"
 Use this tutorial to create a highly available Red Hat® OpenShift Container Platform 3.9 environment on top of IBM® Cloud infrastructure. 
 {: shortdesc}
 
-[Red Hat® OpenShift Container Platform ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.openshift.com/products/container-platform/) is built around a core of containers, with orchestration and management provided by Kubernetes, on a foundation of Atomic Host and Red Hat® Enterprise Linux. OpenShift Origin is the community distribution of Kubernetes that is optimized for continuous app development and multi-tenant deployment. The community project provides developer and operations-centric tools on top of Kubernetes to enable rapid app development, deployment, scaling, and long-term app lifecycle maintenance. 
+[Red Hat® OpenShift Container Platform ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.openshift.com/products/container-platform/) is built around a core of containers, with orchestration and management provided by Kubernetes, on a foundation of Atomic Host and Red Hat® Enterprise Linux. OpenShift Origin is the community distribution of Kubernetes that is optimized for continuous app development and multi-tenant deployment. The community project provides developer and operations-centric tools on top of Kubernetes to enable rapid app development, deployment, scaling, and long-term app lifecycle maintenance. 
 
 This tutorial shows how you can set up OpenShift Container Platform 3.9 on top of {{site.data.keyword.Bluemix_notm}} to take advantage of the high availability capabilities of native Kubernetes and {{site.data.keyword.Bluemix_notm}} to create a highly available OpenShift Container Platform 3.9 environment. Review the following image to find an architectural overview of the infrastructure components that are needed for the Red Hat OpenShift Container Platform to work properly.
 
@@ -59,9 +59,9 @@ This tutorial is intended for network administrators who want to deploy Red Hat 
 ## Prerequisites
 {: #prerequisites}
 
-- If you do not have one, create an {{site.data.keyword.Bluemix_notm}} [Pay-As-You-Go or Subscription {{site.data.keyword.Bluemix_notm}} account ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/registration/). 
-- Make sure that you have an existing [Red Hat account ![External link icon](../icons/launch-glyph.svg "External link icon")](https://sso.redhat.com/auth/realms/redhat-external/protocol/saml?SAMLRequest=fZLLTsMwEEV%2FJTuvXCelr1hJpKgVUqWCUAss2CDXnZBIfgSPQwtfj5Oqomy69Ojec%2BfhDIVWLS87X5stfHaAPioRwfnGmqU12GlwO3BfjYSX7SYntfctcsaElIA4cnCohR9Jq5kWRnyABuNZD2VVY4RqfoBEq0ANjx75B0C0124ROmAOhNLIzmUKJw8uMFjrrLfSqoFLovUqJ%2B9JFUuIZ5KmM5B0Mk6BpkkaU0inYjGphNind0GK2MHaoBfG52QcJwuaxDRePCdzPkn5dP5GoldwOHQ2HsUkOmllkPdBOemc4VZgg9wIDci95LvyYcODkIvLkq4t7W3PZQ5SZL2aD925wtWo6RH2GbuuZufLPAbKevVkVSO%2Fo1Ipe1yGLXnIiXdd2O29dVr427l9pTnQapDytp8XfbgTYcU58%2F8HKH4B&RelayState=https%3A%2F%2Faccess.redhat.com%2Fmanagement%2Fsubscriptions&SigAlg=http%3A%2F%2Fwww.w3.org%2F2000%2F09%2Fxmldsig%23rsa-sha1&Signature=t4s738AUmTxKfEMZkNpOI8e1wz72ftoZ92HQIbqfs%2BShcdv3ShuJ4%2FIGIhuMYA%2BoaFZwaPcamWlo7F0VDtSN%2FHXcXj78e5s%2B99vJ3K39V4CYCmWOO3fFbpRIV5T0jxzwsp45YEeFKZd45zeQ0X2UwCxPw41JVOqq6NqIqMAJ0y%2Bb92nmE9fFMKlBCS4A%2BTHN1ub1YCUEvgKUNEOasyGdGYXHf0fh9NSUAHO8UJAPSnR0YmBLr4oWteeRuu5MkmqWxEx0F2FOIXtgncMjTsHhyqUllYKjK5%2Buf8YgbeU4ptZoniLmQEKzzrd1KJTutc3ce4W7X7h0zteTEqSdou7LLQ%3D%3D#active) that has an [active Openshift subscription ![External link icon](../icons/launch-glyph.svg "External link icon")](https://access.redhat.com/products/red-hat-openshift-container-platform). 
-- Install [Docker and the {{site.data.keyword.Bluemix_notm}} CLI ![External link icon](../icons/launch-glyph.svg "External link icon")](/docs/cli/index.html#overview). 
+- If you do not have one, create an {{site.data.keyword.Bluemix_notm}} [Pay-As-You-Go or Subscription {{site.data.keyword.Bluemix_notm}} account ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/registration/). 
+- Make sure that you have an existing [Red Hat account ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://sso.redhat.com/auth/realms/redhat-external/protocol/saml?SAMLRequest=fZLLTsMwEEV%2FJTuvXCelr1hJpKgVUqWCUAss2CDXnZBIfgSPQwtfj5Oqomy69Ojec%2BfhDIVWLS87X5stfHaAPioRwfnGmqU12GlwO3BfjYSX7SYntfctcsaElIA4cnCohR9Jq5kWRnyABuNZD2VVY4RqfoBEq0ANjx75B0C0124ROmAOhNLIzmUKJw8uMFjrrLfSqoFLovUqJ%2B9JFUuIZ5KmM5B0Mk6BpkkaU0inYjGphNind0GK2MHaoBfG52QcJwuaxDRePCdzPkn5dP5GoldwOHQ2HsUkOmllkPdBOemc4VZgg9wIDci95LvyYcODkIvLkq4t7W3PZQ5SZL2aD925wtWo6RH2GbuuZufLPAbKevVkVSO%2Fo1Ipe1yGLXnIiXdd2O29dVr427l9pTnQapDytp8XfbgTYcU58%2F8HKH4B&RelayState=https%3A%2F%2Faccess.redhat.com%2Fmanagement%2Fsubscriptions&SigAlg=http%3A%2F%2Fwww.w3.org%2F2000%2F09%2Fxmldsig%23rsa-sha1&Signature=t4s738AUmTxKfEMZkNpOI8e1wz72ftoZ92HQIbqfs%2BShcdv3ShuJ4%2FIGIhuMYA%2BoaFZwaPcamWlo7F0VDtSN%2FHXcXj78e5s%2B99vJ3K39V4CYCmWOO3fFbpRIV5T0jxzwsp45YEeFKZd45zeQ0X2UwCxPw41JVOqq6NqIqMAJ0y%2Bb92nmE9fFMKlBCS4A%2BTHN1ub1YCUEvgKUNEOasyGdGYXHf0fh9NSUAHO8UJAPSnR0YmBLr4oWteeRuu5MkmqWxEx0F2FOIXtgncMjTsHhyqUllYKjK5%2Buf8YgbeU4ptZoniLmQEKzzrd1KJTutc3ce4W7X7h0zteTEqSdou7LLQ%3D%3D#active) that has an [active Openshift subscription ![External link icon](../icons/launch-glyph.svg "External link icon")](https://access.redhat.com/products/red-hat-openshift-container-platform). 
+- Install [Docker and the {{site.data.keyword.Bluemix_notm}} CLI ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/cli/index.html#overview). 
 
 ## Lesson 1: Configure your environment
 {: #configure environment}
@@ -70,7 +70,7 @@ In this tutorial, you provision {{site.data.keyword.Bluemix_notm}} infrastructur
 {: shortdesc}
 
 1. Create a Docker container that installs Terraform and the {{site.data.keyword.Bluemix_notm}} Provider plug-in. To execute Terraform commands, you must be logged in to the container. 
-   You can also [install Terraform and the {{site.data.keyword.Bluemix_notm}} Provider plug-in](setup_cli.html#install) on your local machine to run Terraform commands without using a Docker container. 
+   You can also [install Terraform and the {{site.data.keyword.Bluemix_notm}} Provider plug-in](../../setup_cli.html#install) on your local machine to run Terraform commands without using a Docker container. 
    {: tip}
    1. Download the latest version of the Docker image for Terraform and the {{site.data.keyword.Bluemix_notm}} Provider plug-in to your local machine. 
       ```
@@ -223,7 +223,7 @@ In this tutorial, you provision {{site.data.keyword.Bluemix_notm}} infrastructur
    </tr>
    <tr>
    <td><code>bastion_flavor</code></td>
-   <td>Enter the flavor that you want to use for your Bastion virtual machine. The Bastion host is the only ingress point for SSH in the OpenShift cluster from external entities. When connecting to the OpenShift Container Platform infrastructure, the Bastion host forwards the request to the infrastructure or app server. For more information, see [Bastion instance ![External link icon](../icons/launch-glyph.svg "External link icon")](https://access.redhat.com/documentation/en-us/reference_architectures/2018/html/deploying_and_managing_openshift_3.9_on_google_cloud_platform/components_and_considerations#bastion_instance) </td>
+   <td>Enter the flavor that you want to use for your Bastion virtual machine. The Bastion host is the only ingress point for SSH in the OpenShift cluster from external entities. When connecting to the OpenShift Container Platform infrastructure, the Bastion host forwards the request to the infrastructure or app server. For more information, see [Bastion instance ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://access.redhat.com/documentation/en-us/reference_architectures/2018/html/deploying_and_managing_openshift_3.9_on_google_cloud_platform/components_and_considerations#bastion_instance) </td>
    <td>B1_4X8X100</td>
    </tr>
    <tr>
@@ -258,12 +258,12 @@ In this tutorial, you provision {{site.data.keyword.Bluemix_notm}} infrastructur
    </tr>
    <tr>
    <td><code>rhn_password</code></td>
-   <td>The [Red Hat Network password ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.redhat.com/apps/register/connect/) to access the OpenShift project. You can enter this information here or provide it as part of your OpenShift deployment in [Lesson 2](#provision_infrastructure).  </td>
+   <td>The [Red Hat Network password ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.redhat.com/apps/register/connect/) to access the OpenShift project. You can enter this information here or provide it as part of your OpenShift deployment in [Lesson 2](#provision_infrastructure).  </td>
    <td>n/a</td>
    </tr>
    <tr>
    <td><code>rhn_username</code></td>
-   <td>The [Red Hat Network user name with OpenShift subscription![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.redhat.com/apps/register/connect/) to access the OpenShift project. You can enter this information here or provide it as part of your OpenShift deployment in [Lesson 2](#provision_infrastructure).  </td>
+   <td>The [Red Hat Network user name with OpenShift subscription![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.redhat.com/apps/register/connect/) to access the OpenShift project. You can enter this information here or provide it as part of your OpenShift deployment in [Lesson 2](#provision_infrastructure).  </td>
    <td>n/a</td>
    </tr>
    <tr>
@@ -318,7 +318,7 @@ Now that you prepared your environment, you can go ahead and provision {{site.da
 Before you begin, make sure that you are logged in to the container that you created in the previous lesson. 
 
 1. Retrieve your {{site.data.keyword.Bluemix_notm}} infrastructure user name and API key.
-   1. Log in to the [{{site.data.keyword.Bluemix_notm}} infrastructure portal ![External link icon](../icons/launch-glyph.svg "External link icon")](https://control.bluemix.net/).
+   1. Log in to the [{{site.data.keyword.Bluemix_notm}} infrastructure portal ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.bluemix.net/).
    2. From the expanding menu, select **Infrastructure**.
    3. From the menu bar, select **Account** > **Users** > **User List**.
    4. Find the user whose user name and API key you want to retrieve.
@@ -567,9 +567,9 @@ During the deployment the following cluster components are set up and configured
 - 2 OpenShift Container Platform application nodes
 - 1 OpenShift Container Platform Bastion node
 
-For more information about the Red Hat OpenShift Container Platform components, see the [Architecture Overview ![External link icon](../icons/launch-glyph.svg "External link icon")](https://docs.openshift.com/container-platform/3.9/architecture/index.html)
+For more information about the Red Hat OpenShift Container Platform components, see the [Architecture Overview ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.openshift.com/container-platform/3.9/architecture/index.html)
 
-1. Create the Bastion node and register the node with the Red Hat Network. The Bastion node is connected to the public VLAN and serves as the only SSH entry point for incoming requests to the cluster. To protect your cluster, the Bastion node is configured to securely download all the software images and packages that are required to perform a [disconnected installation ![External link icon](../icons/launch-glyph.svg "External link icon")](https://docs.openshift.com/container-platform/3.6/install_config/install/disconnected_install.html) of the OpenShift Container Platform on the master, infrastructure, and application nodes during the creation. The software packages are stored in a local repository on the Bastion node that is automatically set up during the Bastion creation. The master, infrastruction, and application nodes can later access this local repository to perform the disconnected OpenShift installation. 
+1. Create the Bastion node and register the node with the Red Hat Network. The Bastion node is connected to the public VLAN and serves as the only SSH entry point for incoming requests to the cluster. To protect your cluster, the Bastion node is configured to securely download all the software images and packages that are required to perform a [disconnected installation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.openshift.com/container-platform/3.6/install_config/install/disconnected_install.html) of the OpenShift Container Platform on the master, infrastructure, and application nodes during the creation. The software packages are stored in a local repository on the Bastion node that is automatically set up during the Bastion creation. The master, infrastruction, and application nodes can later access this local repository to perform the disconnected OpenShift installation. 
    ```
    make rhn_username=<rhn_username> rhn_password=<rhn_password> bastion
    ```
@@ -692,11 +692,11 @@ For more information about the Red Hat OpenShift Container Platform components, 
    ```
    {: pre}
    
-6. Set up users and authentication for your OpenShift cluster. The OpenShift Container Platform master includes a built-in OAuth server. By default, this OAuth server is set up to deny all authentication. To let developers and admins authenticate with the cluster, follow the steps in [Configuring access and authentication ![External link icon](../icons/launch-glyph.svg "External link icon")](https://docs.openshift.com/container-platform/3.6/install_config/configuring_authentication.html#install-config-configuring-authentication) to set up access for your cluster. 
+6. Set up users and authentication for your OpenShift cluster. The OpenShift Container Platform master includes a built-in OAuth server. By default, this OAuth server is set up to deny all authentication. To let developers and admins authenticate with the cluster, follow the steps in [Configuring access and authentication ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.openshift.com/container-platform/3.6/install_config/configuring_authentication.html#install-config-configuring-authentication) to set up access for your cluster. 
 
-7. Configure your Docker registry. During the creation of your cluster, an internal, integrated Docker registry is automatically set up for you. You can use the registry to build container images from your source code, deploy them, and manage their lifecycle. For more information, see [Registry Overview ![External link icon](../icons/launch-glyph.svg "External link icon")](https://docs.openshift.com/container-platform/3.6/install_config/registry/index.html#install-config-registry-overview). 
+7. Configure your Docker registry. During the creation of your cluster, an internal, integrated Docker registry is automatically set up for you. You can use the registry to build container images from your source code, deploy them, and manage their lifecycle. For more information, see [Registry Overview ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.openshift.com/container-platform/3.6/install_config/registry/index.html#install-config-registry-overview). 
 
-8. Configure your cluster router to enable incoming non-SSH network traffic for your cluster. For more information, see [Router Overview ![External link icon](../icons/launch-glyph.svg "External link icon")](https://docs.openshift.com/container-platform/3.6/install_config/router/index.html#install-config-router-overview). 
+8. Configure your cluster router to enable incoming non-SSH network traffic for your cluster. For more information, see [Router Overview ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.openshift.com/container-platform/3.6/install_config/router/index.html#install-config-router-overview). 
    
 ## Lesson 4: Deploy an app in your Red Hat OpenShift cluster
 {: #deploy_app}
@@ -734,7 +734,7 @@ With your OpenShift cluster up and running, you can now deploy your first app in
    ```
    {: pre}
    
-   To access an image in your private registry after the image is stored, see [Accessing the Registry ![External link icon](../icons/launch-glyph.svg "External link icon")](https://docs.openshift.com/container-platform/3.9/install_config/registry/accessing_registry.html). 
+   To access an image in your private registry after the image is stored, see [Accessing the Registry ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.openshift.com/container-platform/3.9/install_config/registry/accessing_registry.html). 
    {: tip}
 
 5. Create a service for your `nginx` app to expose your app inside the cluster. 
@@ -762,7 +762,7 @@ With your OpenShift cluster up and running, you can now deploy your first app in
    {: screen}
    
 8. Expose your app to the public. By default, your `nginx` app is accessible from inside the cluster only. You can expose your cluster to the public by assigning a front-end port to your application node load balancer. 
-   1. Log in to the [{{site.data.keyword.Bluemix_notm}} infrastructure portal ![External link icon](../icons/launch-glyph.svg "External link icon")](https://control.bluemix.net/). 
+   1. Log in to the [{{site.data.keyword.Bluemix_notm}} infrastructure portal ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.bluemix.net/). 
    2. From the menu, select **Network** > **Load Balancing** > **Local** and find the application node load balancer that you created earlier. 
    3. From the actions menu, click **View details**. 
    4. Select the **Protocols** tab. 
@@ -787,6 +787,6 @@ With your OpenShift cluster up and running, you can now deploy your first app in
 **What's next?**</br>
 Great! You successfully installed Red Hat OpenShift Container Platform on top of {{site.data.keyword.Bluemix_notm}} infrastructure and deployed your first app to your OpenShift cluster. Now you can try out one of the following:  
 
-- [Explore other features in Red Hat OpenShift Container Platform ![External link icon](../icons/launch-glyph.svg "External link icon")](https://docs.openshift.com/container-platform/3.9/welcome/index.html). 
+- [Explore other features in Red Hat OpenShift Container Platform ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.openshift.com/container-platform/3.9/welcome/index.html). 
 - Remove your OpenShift cluster by running the `make destroy` command. 
 
