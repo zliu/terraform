@@ -194,7 +194,7 @@ In this tutorial, you provision {{site.data.keyword.Bluemix_notm}} infrastructur
 
 4. Navigate back into your OpenShift installation directory. 
    ```
-   cd go/bin/terraform-ibm-openshift
+   cd /go/bin/terraform-ibm-openshift
    ```
    {: pre}
     
