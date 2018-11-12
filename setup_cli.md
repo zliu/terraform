@@ -39,7 +39,7 @@ To support a multi-cloud approach, Terraform works with cloud providers. A cloud
 
    2. [Download the Terraform binary to your local machine ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.terraform.io/downloads.html). 
 
-   3. Unzip the Terraform package and copy the binary into your `terraform` directory. 
+   3. Extract the Terraform package and copy the binary into your `terraform` directory. 
    4. Point the `$PATH` environment variable to your Terraform binary.
       ```
       export PATH=$PATH:$HOME/terraform
