@@ -3,7 +3,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-06"
+lastupdated: "2018-11-12"
 
 ---
 
@@ -83,7 +83,7 @@ Looking for other resource types? Find a complete list of supported resource typ
    ```
    {: screen}
    
-3. Generate a Terraform execution plan. When you execute this command, Terraform validates the syntax of your configuration file and resource definitions against the specifications provided by the {{site.data.keyword.Bluemix_notm}} Provider plug-in. 
+3. Generate a Terraform execution plan. When you execute this command, Terraform validates the syntax of your configuration file and resource definitions against the specifications that are provided by the {{site.data.keyword.Bluemix_notm}} Provider plug-in. 
    ```
    terraform plan
    ```
@@ -344,7 +344,7 @@ You can use Terraform to remove {{site.data.keyword.Bluemix_notm}} resources if 
    ```
    {: screen}
    
-4. Verify that your {{site.data.keyword.Bluemix_notm}} resources are remoded. 
+4. Verify that your {{site.data.keyword.Bluemix_notm}} resources are removed. 
    ```
    terraform show
    ```
