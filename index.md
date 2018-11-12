@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-08"
+lastupdated: "2018-11-12"
 
 ---
 
@@ -19,13 +19,13 @@ lastupdated: "2018-10-08"
 # Getting started with Terraform 
 {: #index}
 
-Terraform is an open-source software developed by HashiCorp that enables predictable and consistent provisioning of {{site.data.keyword.Bluemix_notm}} resources by using a high-level scripting language. You can use Terraform to automate your {{site.data.keyword.Bluemix_notm}} resource provisioning, rapidly build complex, multi-tier cloud environments, and enable Infrastructure as Code (IaC).  
+Terraform is an Open Source software that is developed by HashiCorp that enables predictable and consistent provisioning of {{site.data.keyword.Bluemix_notm}} resources by using a high-level scripting language. You can use Terraform to automate your {{site.data.keyword.Bluemix_notm}} resource provisioning, rapidly build complex, multi-tier cloud environments, and enable Infrastructure as Code (IaC).  
 {: shortdesc}
 
 **How does it work?**</br>
 Let's say you want to spin up multiple copies of your service that uses a cluster of virtual servers, a load balancer, and a database server. You could learn how to create each resource, review the API or the commands that you need, and write a bash script to spin up these components. But it's easier, faster, and more orderly to specify the type of resource that you want and let Terraform do it all for you. 
 
-The Terraform configuration files describe the components that you need. Based on your configuration, Terraform creates an execution plan and describes the actions that need to be executed to get to the desired state. You can review the execution plan, change it, or simply execute the plan. When you change your configuration, Terraform can determine what has changed and create incremental execution plans that you can apply to your {{site.data.keyword.Bluemix_notm}} resources. 
+The Terraform configuration files describe the components that you need. Based on your configuration, Terraform creates an execution plan and describes the actions that need to be executed to get to the desired state. You can review the execution plan, change it, or simply execute the plan. When you change your configuration, Terraform can determine what changed and create incremental execution plans that you can apply to your {{site.data.keyword.Bluemix_notm}} resources. 
 
 **What do I need to get started?**</br>
 To provision {{site.data.keyword.Bluemix_notm}} infrastructure and platform resources, you must have a [Pay-As-You-Go or Subscription {{site.data.keyword.Bluemix_notm}} account ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/registration/). 
@@ -50,7 +50,7 @@ To support a multi-cloud approach, Terraform works with multiple cloud providers
 
    2. [Download the Terraform binary to your local machine ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.terraform.io/downloads.html). 
 
-   3. Unzip the Terraform package and copy the binary into your `terraform` directory. 
+   3. Extract the Terraform package and copy the binary into your `terraform` directory. 
    4. Point the `$PATH` environment variable to your Terraform binary.
       ```
       export PATH=$PATH:$HOME/terraform
@@ -242,7 +242,7 @@ The following example shows how to specify and provision a virtual server in {{s
    ```
    {: screen}
    
-3. Generate a Terraform execution plan. When you execute this command, Terraform validates the syntax of your configuration file and resource definitions against the specifications provided by the {{site.data.keyword.Bluemix_notm}} Provider plug-in. 
+3. Generate a Terraform execution plan. When you execute this command, Terraform validates the syntax of your configuration file and resource definitions against the specifications that are provided by the {{site.data.keyword.Bluemix_notm}} Provider plug-in. 
    ```
    terraform plan
    ```
