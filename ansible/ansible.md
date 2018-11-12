@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-08"
+lastupdated: "2018-11-12"
 
 ---
 
@@ -19,12 +19,12 @@ lastupdated: "2018-11-08"
 {: #ansible}
 
 **What is Ansible?** </br>
-[Ansible ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ansible.com/) is a configuration management and provisioning tool, similar to [Chef ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.chef.io/chef/) and [Puppet ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://puppet.com/), and is designed to automate multi-tier app deployments and provisioning in the cloud. Written in Python, Ansible uses YAML syntax to describe automation tasks, which makes Ansible easy to learn and use. 
+[Ansible ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ansible.com/) is a configuration management and provisioning tool, similar to [Chef ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.chef.io/chef/) and [Puppet ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://puppet.com/), and is designed to automate multitier app deployments and provisioning in the cloud. Written in Python, Ansible uses YAML syntax to describe automation tasks, which makes Ansible easy to learn and use. 
 
 **How does Ansible work?** </br>
 Ansible does not use agents or a custom security infrastructure that must be present on a target machine to work properly. Instead, Ansible connects to compute hosts over the private network by using SSH keys. The SSH key can be preconfigured on the virtual server instance (VSI) when you order the infrastructure in {{site.data.keyword.Bluemix_notm}} so that you can use Ansible right away after your VSI is provisioned. You can choose to create your own SSH key and upload this SSH key to your {{site.data.keyword.Bluemix_notm}} portal. 
 
-Ansible models software packages, configuration, and services as resources on a managed hosts to ensure that the resource is in a specific state. To bring a resource to the desired state, Ansible pushes modules to the managed host to run the required tasks. After the tasks is executed, the result is returned to the Ansible server and the module is removed from the managed host. You can use Ansible modules to execute a specific operation or group scripts and configurations in an Ansible playbook that you can execute. Ansible modules are idempotent such that executing the same playbook or operation multiple times returns the same result as resources are changed only if required. 
+Ansible models software packages, configuration, and services as resources on a managed host to ensure that the resource is in a specific state. To bring a resource to the desired state, Ansible pushes modules to the managed host to run the required tasks. After the tasks are executed, the result is returned to the Ansible server and the module is removed from the managed host. You can use Ansible modules to execute a specific operation or group scripts and configurations in an Ansible playbook that you can execute. Ansible modules are idempotent such that executing the same playbook or operation multiple times returns the same result as resources are changed only if required. 
 
 For more information about Ansible, see:
 - [Ansible documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.ansible.com)
@@ -46,7 +46,7 @@ To securely connect to your virtual machines over the private network with Ansib
    2. Select **Account** > **VPN Access**. 
    3. Find your user name and check the **VPN Access** column. 
       - If the column says **SSL**:  Your user is already set up with SSL access. 
-      - If the column says **None**: You user is not set with SSL access. Follow the steps to set up VPN access for your user. 
+      - If the column says **None**: Your user is not set with SSL access. Follow the steps to set up VPN access for your user. 
    4. Click **None**. 
    5. From the **VPN Type** drop down list, select **SSL**. 
    6. Click **Save**. 
@@ -58,7 +58,7 @@ To securely connect to your virtual machines over the private network with Ansib
    1. Install the Motion Pro Plus client on your local machine. See the instructions for [Linux](https://knowledgelayer.softlayer.com/procedure/ssl-vpn-linux), [macOS](https://knowledgelayer.softlayer.com/procedure/ssl-vpn-mac-os-x-1010), and [Windows](https://knowledgelayer.softlayer.com/procedure/ssl-vpn-windows) for more information for your operating system. 
    2. In your VPN connection profile, enter the following values. 
       - **Site**: 
-      - **Host**: Choose one of the [data center VPN portals in {{site.data.keyword.Bluemix_notm}}](https://www.softlayer.com/VPN-Access) and retrieve their fully qualified domain name in the format `vpn.xxx.softlayer.com` by clicking on the portal link.
+      - **Host**: Choose one of the [data center VPN portals in {{site.data.keyword.Bluemix_notm}}](https://www.softlayer.com/VPN-Access) and retrieve their fully qualified domain name in the format `vpn.xxx.softlayer.com` by clicking the portal link.
       - **Username**: 
 3. Upload an SSH key to the {{site.data.keyword.Bluemix_notm}} infrastructure portal. 
    1. Generate an SSH key. The SSH key is used to access IBM Cloud infrastructure resources during provisioning. Enter the email address that you want to associate with your SSH key. Make sure to accept the default file name, file location, and missing passphrase by pressing Enter.
@@ -196,18 +196,18 @@ Use Ansible playbooks to connect to your infrastructure resources, run operation
 
 Before you begin: 
 - [Complete the Terraform getting started tutorial](../index.html) to install Terraform, configure the {{site.data.keyword.Bluemix_notm}} Provider plug-in and provision a virtual server in {{site.data.keyword.Bluemix_notm}}. 
-- [Setup a VPN connection to your {{site.data.keyword.Bluemix_notm}} infrastructure resources and upload SSH keys](#setup_vpn). 
+- [Set up a VPN connection to your {{site.data.keyword.Bluemix_notm}} infrastructure resources and upload SSH keys](#setup_vpn). 
 - [Install Ansible](#install_ansible) on your local machine.
 
 To run Ansible operations against your infrastructure:
 
-1. Create an Ansible project directory and nagivate into the directory.
+1. Create an Ansible project directory and navigate into the directory.
    ```
    mkdir ansible-apache && cd ansible-apache
    ```
    {: pre}
    
-2. Create an Ansible configuration file that is named `ansible.cfg` with the following content. In this example, SSH **host_key_checking** is disabled to avoid errors during SSH login as virtual servers in {{site.data.keyword.Bluemix_notm}} can reuse IP addresses when they are deleted and recreated. For more information, see [Host Key Checking](https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html#host-key-checking). 
+2. Create an Ansible configuration file that is named `ansible.cfg` with the following content. In this example, SSH **host_key_checking** is disabled to avoid errors during SSH login as virtual servers in {{site.data.keyword.Bluemix_notm}} can reuse IP addresses when they are deleted and re-created. For more information, see [Host Key Checking](https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html#host-key-checking). 
    ```
    [defaults]
    host_key_checking = false
@@ -305,7 +305,7 @@ Ansible executes code against multiple hosts at the same time. To retrieve the h
 You can specify the hosts that you want to target in a `hosts` file and store this file in your Ansible project directory. 
 {: shortdesc}
 
-Specifying the virtual servers in a `hosts` file is a good way to get started with Ansible and in cases where your infrastructure does not change. The `hosts` file is a static file and must be changed every time you add or remove a virtual server. If your infrastructure changes often or if you use Terraform to provision your infrastructure, you can [import infrastructure information directly from Terraform](#import_from_terraform). 
+Specifying the virtual servers in a `hosts` file is a good way to get started with Ansible and in cases where your infrastructure does not change. The `hosts` file is a static file and must be changed every time that you add or remove a virtual server. If your infrastructure changes often or if you use Terraform to provision your infrastructure, you can [import infrastructure information directly from Terraform](#import_from_terraform). 
 
 1. In your Ansible project, create a file that is named `hosts` with the following content. The **ansible_user** is set to `root` to force Ansible to log in to your virtual server as root. If `root` is not specified, Ansible uses the user ID from your local machine to attempt to log in to your virtual server. 
 
@@ -423,11 +423,11 @@ To import the Terraform infrastructure inventory into Ansible:
       </thead>
       <tbody>
       <tr>
-      <td>inventory</td>
+      <td><code>inventory</code></td>
       <td><ul><li><code>hosts</code></li><li><code>terraform_inv.py</code></li><li><code>terraform_inv_ini</code></li></ul></td>
       </tr>
       <tr>
-      <td>tr_test_files</td>
+      <td><code>tr_test_files</code></td>
       <td><ul><li><code>terraform.tfstate</code></li><li><code>terraform1.tfstate</code></li><li><code>terraform2.tfstate</code></li></ul></td>
       </tr>
       </tbody>
@@ -523,5 +523,5 @@ To import the Terraform infrastructure inventory into Ansible:
       
 8. Optional: Verify that the virtual server's private IP address in your Ansible inventory list matches the private IP address in your {{site.data.keyword.Bluemix_notm}} infrastructure dashboard. 
    1. Log in to the [{{site.data.keyword.Bluemix_notm}} infrastructure dashboard](https://control.bluemix.net) and select **Devices** > **Device List**. 
-   2. Look for the virtual server instance that you just created and make sure that the **Private IP** and the IP address that you retrieved from your Ansible inventory list are the same. 
+   2. Look for the virtual server instance that you created and make sure that the **Private IP** and the IP address that you retrieved from your Ansible inventory list are the same. 
       
