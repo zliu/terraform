@@ -30,4 +30,4 @@ lastupdated: "2018-09-26"
 {: #tutorials}
 
 - [Infrastructure automation with Terraform on {{site.data.keyword.Bluemix_notm}} IaaS ![External link icon](../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/recipes/tutorials/infrastructure-automation-with-terraform-on-ibm-cloud-iaas/)
-- [Sample Terraform web site deployment for {{site.data.keyword.Bluemix_notm}} IaaS ![External link icon](../icons/launch-glyph.svg "External link icon")](https://github.com/stevestrutt/web-single-dc)
+- [Sample Terraform website deployment for {{site.data.keyword.Bluemix_notm}} IaaS ![External link icon](../icons/launch-glyph.svg "External link icon")](https://github.com/stevestrutt/web-single-dc)
