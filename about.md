@@ -21,7 +21,7 @@ lastupdated: "2018-09-28"
 With Terraform, you can automate the {{site.data.keyword.Bluemix_notm}} resource provisioning to build, change, and version complex, multi-tier cloud environments. 
 {: shortdesc} 
 
-Terraform is an open-source software developed by HashiCorp that enables predictable and consistent provisioning of cloud resources by using a high-level scripting language. Supported resources include Infrastructure-as-a-Service (IaaS), Platform-as-a-Service (PaaS), and Function-as-a-Servic (FaaS). By working with different cloud providers, you can use Terraform to configure and automate your cloud resource provisioning across cloud providers. 
+Terraform is an open source software that is developed by HashiCorp that enables predictable and consistent provisioning of cloud resources by using a high-level scripting language. Supported resources include Infrastructure-as-a-Service (IaaS), Platform-as-a-Service (PaaS), and Function-as-a-Service (FaaS). By working with different cloud providers, you can use Terraform to configure and automate your cloud resource provisioning across cloud providers. 
 
 ## Key terms
 {: #terms}
