@@ -182,7 +182,7 @@ In this tutorial, you provision {{site.data.keyword.Bluemix_notm}} infrastructur
 
    2. Verify that the SSH key is created successfully. The creation is successful if you can see one **id_rsa** and one **id_rsa.pub** file. 
       ```
-      /root/.ssh && ls
+      cd /root/.ssh && ls
       ```
       {: pre}
    
