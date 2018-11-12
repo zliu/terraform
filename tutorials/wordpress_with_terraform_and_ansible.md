@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-08"
+lastupdated: "2018-11-12"
 
 ---
 
@@ -17,13 +17,13 @@ lastupdated: "2018-11-08"
 {:important: .important}
 {:download: .download}
 
-# Tutorial: Using Terraform and Ansible to deploy WordPress on IBM Cloud infrastructure
+# Tutorial: Deploying WordPress on IBM Cloud infrastructure with Terraform and Ansible
 {: #deploy_wordpress}
 
 Use this tutorial to automate the provisioning of infrastructure resources in {{site.data.keyword.Bluemix_notm}} by using Terraform and the deployment of WordPress on those resources with Ansible.  
 {: shortdesc}
 
-[Ansible](https://docs.ansible.com) and Terraform are complimentary solutions, each address a key area of app and environment management. Terraform provides lifecycle management of infrastructure whereas Ansible helps you to provision and configure apps. This tutorial shows how you provision {{site.data.keyword.Bluemix_notm}} infrastructure with Terraform and then use Ansible to deploy Wordpress on Apache web servers and Mariadb, on top of your Terraform-deployed infrastructure resources. Terraform and Ansible are loosely integrated through the sharing of inventory information.
+[Ansible](https://docs.ansible.com) and Terraform are complimentary solutions, each address a key area of app and environment management. Terraform provides lifecycle management of infrastructure whereas Ansible helps you to provision and configure apps. This tutorial shows how you provision {{site.data.keyword.Bluemix_notm}} infrastructure with Terraform and then use Ansible to deploy Wordpress on Apache web servers and Mariadb, on your Terraform-deployed infrastructure resources. Terraform and Ansible are loosely integrated through the sharing of inventory information.
 
 ## Solution overview
 {: #overview}
@@ -45,16 +45,16 @@ Terraform infrastructure components are provisioned by using Terraform configura
 <tbody>
 <tr>
 <td>Terraform</td>
-<td><ul><li>3 {{site.data.keyword.Bluemix_notm}} virtual servers that run Centos 7.x</li><li>1 {{site.data.keyword.Bluemix_notm}} load balancer</li></ul></td>
+<td><ul><li>Three {{site.data.keyword.Bluemix_notm}} virtual servers that run Centos 7.x</li><li>One {{site.data.keyword.Bluemix_notm}} load balancer</li></ul></td>
 </tr>
 <tr>
 <td>Ansible</td>
-<td><ul><li>2 Apache (httpd) app server</li><li>1 Mariadb</li><li>WordPress</li></ul></td>
+<td><ul><li>Two Apache (HTTPd) app servers</li><li>One Mariadb</li><li>WordPress</li></ul></td>
 </tr>
 </tbody>
 </table>
 
-This tutorial intends to demonstrate the capability of building web sites on {{site.data.keyword.Bluemix_notm}} infrastructure with secure networking, and does not intend to provide a fully operational Wordpress deployment. To run this tutorial, the infrastructure costs that incur are restricted to the virtual servers and the load balancer that are provisioned as part of this tutorial. No costs are required for DNS domain names or SSL/TLS certificates. All infrastructure resources are provisioned with an hourly billing type. The actual costs for you depend on the type of virtual server that you provision and the number of hours that you use your infrastructure resources. As a result of limiting the costs for this tutorial, the website in WordPress is not configured with HTTPS security.
+This tutorial intends to demonstrate the capability of building websites on {{site.data.keyword.Bluemix_notm}} infrastructure with secure networking, and does not intend to provide a fully operational Wordpress deployment. To run this tutorial, the infrastructure costs that incur are restricted to the virtual servers and the load balancer that are provisioned as part of this tutorial. No costs are required for DNS domain names or SSL/TLS certificates. All infrastructure resources are provisioned with an hourly billing type. The actual costs for you depend on the type of virtual server that you provision and the number of hours that you use your infrastructure resources. As a result of limiting the costs for this tutorial, the website in WordPress is not configured with HTTPS security.
 {: important}
 
 ## Objectives
@@ -65,7 +65,7 @@ In this tutorial, you use Terraform to deploy {{site.data.keyword.Bluemix_notm}}
 - Set up your environment and all the software that you need for your sample WordPress app, such as Terraform, {{site.data.keyword.Bluemix_notm}} Provider plug-in, and Ansible.
 - Provision {{site.data.keyword.Bluemix_notm}} infrastructure components for your WordPress sample app by using Terraform.
 - Import infrastructure resource information from Terraform to Ansible. 
-- Deploy a sample WordPress app on top of your {{site.data.keyword.Bluemix_notm}} infrastructure with Ansible. 
+- Deploy a sample WordPress app on your {{site.data.keyword.Bluemix_notm}} infrastructure with Ansible. 
 - Use Ansible to finalize the setup of your WordPress app. 
 
 ## Time required
@@ -104,7 +104,7 @@ To use Terraform to provision {{site.data.keyword.Bluemix_notm}} infrastructure 
       {: pre}
 
    2. [Download the Terraform binary to your local machine ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.terraform.io/downloads.html). Select the version that is provided for the operating system that you use on your local machine.
-   3. Unzip the Terraform package and copy the binary into your `terraform` directory. 
+   3. Extract the Terraform package and copy the binary into your `terraform` directory. 
    4. Point the `$PATH` environment variable to your Terraform binary.
       ```
       export PATH=$PATH:$HOME/terraform
@@ -285,7 +285,7 @@ Set up your Ansible project directory and install Ansible on your local machine 
       ```
       {: screen}
 
-4. If you run macOS on your local machine, securely store your local machine password with Ansible Vault in a `vault.yml` file. The WordPress sample playbook package requires `sudo` rights to execute updates to the host file and to install modules to monitor the state of the app. Your local machine password is stored as the encrypted variable `su_password` by Ansible Vault in the `vault.yml` file in the `group_vars/control` folder of your Ansible project directory. If you use a Linux distribution, this step is not required. 
+4. If you run macOS on your local machine, securely store your local machine password with Ansible Vault in a `vault.yml` file. The WordPress sample playbook package requires `sudo` permissions to execute updates to the host file and to install modules to monitor the state of the app. Your local machine password is stored as the encrypted variable `su_password` by Ansible Vault in the `vault.yml` file in the `group_vars/control` folder of your Ansible project directory. If you use a Linux distribution, this step is not required. 
    1. Create your `vault.yml` file. 
       ```
       ansible-vault create <ansible_project_path>/group_vars/control/vault.yml
@@ -361,7 +361,7 @@ In this lesson, you deploy the virtual server instances and the {{site.data.keyw
       
    3. Note the domain name **web_dns_name** that is assigned to your {{site.data.keyword.Bluemix_notm}} Load Balancer. 
       
-4. Verify that the domain name of your {{site.data.keyword.Bluemix_notm}} load balancer is successfully registered with a domain name server. DNS name updates for the load balancer can take anywhere from 10 to 30 minutes to propagate to public global domain name servers after you deployed your infrastructure resources. However, the domain name and the public IP address of your load balancer are registered with the IBM domain name servers that you can reach at `ns1.softlayer.com` and `ns2.softlayer.com` after a few minutes. You can use these domain name servers to validate the setup of your load balancer.  
+4. Verify that the domain name of your {{site.data.keyword.Bluemix_notm}} load balancer is successfully registered with a domain name server. DNS name updates for the load balancer can take 10 - 30 minutes to propagate to public global domain name servers after you deployed your infrastructure resources. However, the domain name and the public IP address of your load balancer are registered with the IBM domain name servers that you can access at `ns1.softlayer.com` and `ns2.softlayer.com` after a few minutes. You can use these domain name servers to validate the setup of your load balancer.  
    ```
    nslookup <web_dns_name> ns1.softlayer.com
    ```
