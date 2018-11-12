@@ -3,7 +3,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-10-06"
 
 ---
 
@@ -26,10 +26,10 @@ Use the Terraform CLI to create your platform and infrastructure resources in {{
 ## Provisioning IBM Cloud resources
 {: #provision_resources}
 
-To provision {{site.data.keyword.Bluemix_notm}} resources, you must describe the desired state of your resources in a configuration file. 
+To provision {{site.data.keyword.Bluemix_notm}} resources, you must describe the state of your resources that you want to achieve in a configuration file. 
 {: shortdesc}
 
-Terraform configuration files are written by using the [HashiCorp Configuration Language (HCL) ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.terraform.io/docs/configuration/syntax.html) or JSON syntax. When you create your configuration file, you must describe the type of resource that you want and the desired state that you want to achieve for your resource. Terraform reads this configuration and creates an execution plan with the steps that were identified to achieve the desired state. If existing resources are found, Terraform identifies the necessary steps to update them. 
+Terraform configuration files are written by using the [HashiCorp Configuration Language (HCL) ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.terraform.io/docs/configuration/syntax.html) or JSON syntax. When you create your configuration file, you must describe the type of resource that you want and the state that you want to achieve for your resource. Terraform reads this configuration and creates an execution plan with the steps that were identified to achieve the specified state. If existing resources are found, Terraform identifies the necessary steps to update them. 
 
 Before you begin: 
 - [Install the Terraform CLI and the {{site.data.keyword.Bluemix_notm}} Provider plug-in](setup_cli.html).
