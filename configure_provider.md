@@ -29,7 +29,7 @@ Before you can configure the {{site.data.keyword.Bluemix_notm}} Provider plug-in
 **What credentials do I need?**</br>
 The credentials that you need depend on the type of resource that you want to provision. For example, to provision infrastructure resources, you must provide your {{site.data.keyword.Bluemix_notm}} infrastructure credentials. Other resources, such as Cloud Foundry services, require an {{site.data.keyword.Bluemix_notm}} platform API key and the Cloud Foundry org and space where you want to provision the service. 
 
-1. To provision {{site.data.keyword.Bluemix_notm}} platform services, create an {{site.data.keyword.Bluemix_notm}} plaform API key. Note the **API Key** that is created for you. 
+1. To provision {{site.data.keyword.Bluemix_notm}} platform services, create an {{site.data.keyword.Bluemix_notm}} platform API key. Note the **API Key** that is created for you. 
    ```
    ibmcloud iam api-key-create <apikey_name>
    ```
