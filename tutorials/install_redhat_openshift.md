@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-10-26"
 
 ---
 
@@ -219,7 +219,7 @@ In this tutorial, you provision {{site.data.keyword.Bluemix_notm}} infrastructur
    <tr>
    <td><code>app_lbass_name</code></td>
    <td>Enter the name of the local load balancer that you want to use to load balance incoming requests for your app nodes. </td>
-   <td>openshift-app</td>
+   <td><code>openshift-app</code></td>
    </tr>
    <tr>
    <td><code>bastion_flavor</code></td>
@@ -248,8 +248,8 @@ In this tutorial, you provision {{site.data.keyword.Bluemix_notm}} infrastructur
    </tr>
    <tr>
    <td><code>infra_lbass_name</code></td>
-   <td>Enter the name of the local load balacner that you want to use to load balance incoming requests for your infrastructure nodes. </td>
-   <td>openshift-infra</td>
+   <td>Enter the name of the local load balancer that you want to use to load balance incoming requests for your infrastructure nodes. </td>
+   <td><code>openshift-infra</code></td>
    </tr>
    <tr>
    <td><code>master_count</code></td>
@@ -263,7 +263,7 @@ In this tutorial, you provision {{site.data.keyword.Bluemix_notm}} infrastructur
    </tr>
    <tr>
    <td><code>rhn_username</code></td>
-   <td>The [Red Hat Network user name with OpenShift subscription![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.redhat.com/apps/register/connect/) to access the OpenShift project. You can enter this information here or provide it as part of your OpenShift deployment in [Lesson 2](#provision_infrastructure).  </td>
+   <td>The [Red Hat Network user name with OpenShift subscription ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.redhat.com/apps/register/connect/) to access the OpenShift project. You can enter this information here or provide it as part of your OpenShift deployment in [Lesson 2](#provision_infrastructure).  </td>
    <td>n/a</td>
    </tr>
    <tr>
@@ -356,17 +356,17 @@ Before you begin, make sure that you are logged in to the container that you cre
    <tr>
    <td>Master node</td>
    <td>B1_4X8X100</td>
-   <td>Three disks arranged as SAN with a total capacity of 100 GB <ul><li>Disk 1: 50 GB</li><li>Disk 2: 25 GB</li><li>Disk 3: 25 GB</li></ul></td>
+   <td>Three disks that are arranged as SAN with a total capacity of 100 GB <ul><li>Disk 1: 50 GB</li><li>Disk 2: 25 GB</li><li>Disk 3: 25 GB</li></ul></td>
    </tr>
    <tr>
    <td>Infrastructure node</td>
    <td>B1_2X4X100</td>
-   <td>Three disks arranged as SAN with a total capacity of 100 GB <ul><li>Disk 1: 50 GB</li><li>Disk 2: 25 GB</li><li>Disk 3: 25 GB</li></ul></td>
+   <td>Three disks that are arranged as SAN with a total capacity of 100 GB <ul><li>Disk 1: 50 GB</li><li>Disk 2: 25 GB</li><li>Disk 3: 25 GB</li></ul></td>
    </tr>
    <tr>
    <td>App nodes</td>
    <td>B1_2X4X100</td>
-   <td>Three disks arranged as SAN with a total capacity of 100 GB <ul><li>Disk 1: 50 GB</li><li>Disk 2: 25 GB</li><li>Disk 3: 25 GB</li></ul></td>
+   <td>Three disks that are arranged as SAN with a total capacity of 100 GB <ul><li>Disk 1: 50 GB</li><li>Disk 2: 25 GB</li><li>Disk 3: 25 GB</li></ul></td>
    </tr>
    <tr>
    <td>Bastion node</td>
@@ -692,7 +692,7 @@ For more information about the Red Hat OpenShift Container Platform components, 
    ```
    {: pre}
    
-6. Set up users and authentication for your OpenShift cluster. The OpenShift Container Platform master includes a built-in OAuth server. By default, this OAuth server is set up to deny all authentication. To let developers and admins authenticate with the cluster, follow the steps in [Configuring access and authentication ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.openshift.com/container-platform/3.6/install_config/configuring_authentication.html#install-config-configuring-authentication) to set up access for your cluster. 
+6. Set up users and authentication for your OpenShift cluster. The OpenShift Container Platform master includes a built-in `OAuth` server. By default, this `OAuth` server is set up to deny all authentication. To let developers and admins authenticate with the cluster, follow the steps in [Configuring access and authentication ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.openshift.com/container-platform/3.6/install_config/configuring_authentication.html#install-config-configuring-authentication) to set up access for your cluster. 
 
 7. Configure your Docker registry. During the creation of your cluster, an internal, integrated Docker registry is automatically set up for you. You can use the registry to build container images from your source code, deploy them, and manage their lifecycle. For more information, see [Registry Overview ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.openshift.com/container-platform/3.6/install_config/registry/index.html#install-config-registry-overview). 
 
@@ -785,7 +785,7 @@ With your OpenShift cluster up and running, you can now deploy your first app in
 </br>
 
 **What's next?**</br>
-Great! You successfully installed Red Hat OpenShift Container Platform on {{site.data.keyword.Bluemix_notm}} infrastructure and deployed your first app to your OpenShift cluster. Now you can try out one of the following:  
+Great! You successfully installed Red Hat OpenShift Container Platform on {{site.data.keyword.Bluemix_notm}} infrastructure and deployed your first app to your OpenShift cluster. Now you can try out one of the following features:  
 
 - [Explore other features in Red Hat OpenShift Container Platform ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.openshift.com/container-platform/3.9/welcome/index.html). 
 - Remove your OpenShift cluster by running the `make destroy` command. 
