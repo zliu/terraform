@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-12"
+lastupdated: "2018-11-14"
 
 ---
 
@@ -208,7 +208,7 @@ To use Terraform to provision {{site.data.keyword.Bluemix_notm}} infrastructure 
       
 5. Retrieve your {{site.data.keyword.Bluemix_notm}} infrastructure user name and API key. 
    1. Log in to the [{{site.data.keyword.Bluemix_notm}} infrastructure portal ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.bluemix.net/).
-   2. From the expanding menu, select **Infrastructure**.
+   2. From the menu ![Menu icon](../icons/icon_hamburger.svg "Menu icon"), select **Infrastructure**.
    3. From the menu bar, select **Account** > **Users** > **User List**.
    4. Find the user whose user name and API key you want to retrieve. 
    5. Click **Generate** to generate an API key or **View** to view your existing API key. A pop-up window opens that shows the infrastructure user name and API key. 
