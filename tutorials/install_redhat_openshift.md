@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-16"
+lastupdated: "2018-11-19"
 
 ---
 
@@ -611,6 +611,7 @@ For more information about the Red Hat OpenShift Container Platform components, 
    <th>Channel</th>
    <th>Repository Name</th>
    </thead>
+   <tbody>
    <tr>
    <td>Red Hat® Enterprise Linux 7 Server (RPMs)</td>
    <td>rhel-7-server-rpms</td>
@@ -789,5 +790,5 @@ With your OpenShift cluster up and running, you can now deploy your first app in
 Great! You successfully installed Red Hat OpenShift Container Platform on {{site.data.keyword.Bluemix_notm}} infrastructure and deployed your first app to your OpenShift cluster. Now you can try out one of the following features:  
 
 - [Explore other features in Red Hat OpenShift Container Platform ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.openshift.com/container-platform/3.9/welcome/index.html). 
-- Remove your OpenShift cluster by running the `make destroy` command.  
+- Remove your OpenShift cluster by running the `make destroy` command. 
 
