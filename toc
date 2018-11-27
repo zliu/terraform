@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="terraform" audience="compute" href="/docs/terraform/index.html" path="terraform"}
+{: .toc subcollection="terraform" audience="compute" arm="4166722" href="/docs/terraform/index.html" path="terraform"}
 Automating cloud resource provisioning with Terraform 
 
     {: .navgroup id="learn"}
