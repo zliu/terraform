@@ -45,3 +45,11 @@ Example: BL2_1X2X100
  - Cores:		1
  - Memory:	2GB
  - Disk:		100GB
+
+
+## Resource provisioning times
+{: provisioning_times}
+
+Most {{site.data.keyword.Bluemix}} resources are provisioned within seconds. Resources including bare-metal servers, virtual servers and Cloud Load Balancers take longer. The `terraform apply` or `destroy` may be stalled waiting for these resources if there are explicit or implicit dependencies through interpolation.  Virtual servers are created in the range of 3-4 minutes, destroy occurs in seconds. {{site.data.keyword.Bluemix}} Load Balancers are in the range of 6-7 minutes to create, destroy can take between 7 to 30 minutes for the task to complete. Bare-metal provisioning times depend on the configuration requested and will be in the order of hours. 
+
+If the Terraform operation does not complete due to a timeout, wait for the resource state change to complete and retry the operation. 
