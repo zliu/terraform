@@ -24,7 +24,7 @@ lastupdated: "2018-11-28"
 {: #vsi_config}
 {: faq}
 
-The Terraform `ibm_compute_vm_instance` resource includes optional and mandatory parameters to be completed. The compute configuration parameters can be determined using the {{site.data.keyword.Bluemix_notm}} CLI.  
+The Terraform `ibm_compute_vm_instance` resource includes optional and mandatory configuration parameters. To find an overview of how you can configure your virtual server, use the {{site.data.keyword.Bluemix_notm}} CLI.  
 
 1. Install the [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli/reference/ibmcloud/download_cli.html#install_use). 
 
