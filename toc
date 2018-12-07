@@ -27,9 +27,7 @@ Automating cloud resource provisioning with Terraform
     {: .navgroup-end}
     
     {: .navgroup id="help"}
+    faqs.md
     rellinks.md
     terraform_ts_index.md
-    {: .topicgroup}
-    FAQs
-        terraform_faqs.md
     {: .navgroup-end}
