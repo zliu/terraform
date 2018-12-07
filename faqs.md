@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-11-28"
+lastupdated: "2018-12-07"
 
 ---
 
@@ -39,9 +39,9 @@ The Terraform `ibm_compute_vm_instance` resource includes optional and mandatory
 {: #provisioning_times}
 {: faq}
 
-Most {{site.data.keyword.Bluemix}} platform resources provision within a few seconds. Infrastructure resources, including bare metal servers, virtual servers and {{site.data.keyword.Bluemix}} Load Balancers can take longer. When you run the `terraform apply` or `terraform destroy` command, the command might take a few minutes to complete and you are not able to enter a different command during that time. The `terraform apply` command returns when your resources are fully provisioned, whereas the `terraform destroy` command might return before your resources are deleted from your {{site.data.keyword.Bluemix}} platform or infrastructure portfolio. 
+Most {{site.data.keyword.Bluemix_notm}} platform resources provision within a few seconds. Infrastructure resources, including bare metal servers, virtual servers and {{site.data.keyword.Bluemix_notm}} Load Balancers can take longer. When you run the `terraform apply` or `terraform destroy` command, the command might take a few minutes to complete and you are not able to enter a different command during that time. The `terraform apply` command returns when your resources are fully provisioned, whereas the `terraform destroy` command might return before your resources are deleted from your {{site.data.keyword.Bluemix_notm}} platform or infrastructure portfolio. 
 
-Use the times in the following table as a reference for when you can expect your `terraform apply` and `terraform destroy` command to complete. 
+Use the `terraform apply` and `terraform destroy` times in the following table as a reference for when you can expect your commands to complete. 
 
 If the Terraform operation does not complete due to a timeout, wait for the resource state change to complete and retry the operation. 
 {: tip}
@@ -55,7 +55,7 @@ If the Terraform operation does not complete due to a timeout, wait for the reso
 </thead>
 <tbody>
 <tr>
-<td>{{site.data.keyword.Bluemix}} platform resouces</td>
+<td>{{site.data.keyword.Bluemix_notm}} platform resouces</td>
 <td>A few seconds</td>
 <td>A few seconds</td>
 </tr>
@@ -65,7 +65,7 @@ If the Terraform operation does not complete due to a timeout, wait for the reso
 <td>A few seconds</td>
 </tr>
 <tr>
-<td>{{site.data.keyword.Bluemix}} Load Balancers</td>
+<td>{{site.data.keyword.Bluemix_notm}} Load Balancers</td>
 <td>A few minutes</td>
 <td>Up to 30 minutes</td>
 </tr>
@@ -77,6 +77,4 @@ If the Terraform operation does not complete due to a timeout, wait for the reso
 </tbody>
 </table>
   
-    
-
-If the Terraform operation does not complete due to a timeout, wait for the resource state change to complete and retry the operation. 
+  
