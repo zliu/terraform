@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-12"
+  years: 2017, 2019
+lastupdated: "2019-01-22"
 
 ---
 
@@ -36,7 +36,7 @@ For more information about Ansible, see:
 Ansible and Terraform are complimentary solutions, each addressing a key area of app and environment management. Terraform provides lifecycle management of infrastructure whereas Ansible helps you to provision and configure apps. 
 
 ## Setting up a VPN connection and SSH authentication to access IBM Cloud infrastructure
-{: #setup_VPN}
+{: #setup_vpn}
 
 To securely connect to your virtual machines over the private network with Ansible, you must configure VPN access for your infrastructure resources and on your local machine, and upload SSH keys to securely authenticate with your infrastructure resources.  
 {: shortdesc}
@@ -113,7 +113,7 @@ To securely connect to your virtual machines over the private network with Ansib
 To use Ansible to execute operations on a virtual server in {{site.data.keyword.Bluemix_notm}}, you must install Ansible on your local machine. 
 {: shortdesc}
 
-Looking for instructions for how to update or remove Ansible? See [updating Ansible](#update_ansible) and [removing Ansible](remove_ansible) for more information. 
+Looking for instructions for how to update or remove Ansible? See [updating Ansible](#update_ansible) and [removing Ansible](#remove_ansible) for more information. 
 {: tip}
 
 ### Installing Ansible
@@ -195,7 +195,7 @@ Use Ansible playbooks to connect to your infrastructure resources, run operation
 {: shortdesc}
 
 Before you begin: 
-- [Complete the Terraform getting started tutorial](../index.html) to install Terraform, configure the {{site.data.keyword.Bluemix_notm}} Provider plug-in and provision a virtual server in {{site.data.keyword.Bluemix_notm}}. 
+- [Complete the Terraform getting started tutorial](/docs/terraform/index.html) to install Terraform, configure the {{site.data.keyword.Bluemix_notm}} Provider plug-in and provision a virtual server in {{site.data.keyword.Bluemix_notm}}. 
 - [Set up a VPN connection to your {{site.data.keyword.Bluemix_notm}} infrastructure resources and upload SSH keys](#setup_vpn). 
 - [Install Ansible](#install_ansible) on your local machine.
 
