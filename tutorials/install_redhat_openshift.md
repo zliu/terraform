@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-19"
+  years: 2017, 2019
+lastupdated: "2019-01-22"
 
 ---
 
@@ -70,7 +70,7 @@ In this tutorial, you provision {{site.data.keyword.Bluemix_notm}} infrastructur
 {: shortdesc}
 
 1. Create a Docker container that installs Terraform and the {{site.data.keyword.Bluemix_notm}} Provider plug-in. To execute Terraform commands, you must be logged in to the container. 
-   You can also [install Terraform and the {{site.data.keyword.Bluemix_notm}} Provider plug-in](../setup_cli.html#setup_cli) on your local machine to run Terraform commands without using a Docker container. 
+   You can also [install Terraform and the {{site.data.keyword.Bluemix_notm}} Provider plug-in](/docs/terraform/setup_cli.html#setup_cli) on your local machine to run Terraform commands without using a Docker container. 
    {: tip}
    1. Download the latest version of the Docker image for Terraform and the {{site.data.keyword.Bluemix_notm}} Provider plug-in to your local machine. 
       ```
