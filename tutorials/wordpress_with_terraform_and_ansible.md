@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-01-22"
 
 ---
 
@@ -82,7 +82,7 @@ This tutorial is intended for network administrators and software developers who
 {: #prerequisites}
 
 - If you do not have one, create an {{site.data.keyword.Bluemix_notm}} [Pay-As-You-Go or Subscription {{site.data.keyword.Bluemix_notm}} account ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/registration/). 
-- [Set up a VPN connection and SSH authentication](../ansible/ansible.html#setup_VPN) to access {{site.data.keyword.Bluemix_notm}} infrastructure resources over the private network. 
+- [Set up a VPN connection and SSH authentication](/docs/terraform/ansible/ansible.html#setup_vpn) to access {{site.data.keyword.Bluemix_notm}} infrastructure resources over the private network. 
 
 ## Lesson 1: Setting up Terraform 
 {: #setup_terraform}
