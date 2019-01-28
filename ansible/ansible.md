@@ -42,24 +42,18 @@ To securely connect to your virtual machines over the private network with Ansib
 {: shortdesc}
 
 1. Configure your infrastructure user for VPN access
-   1. Log in to the [{{site.data.keyword.Bluemix_notm}} infrastructure](https://control.bluemix.net) portal. 
-   2. Select **Account** > **VPN Access**. 
-   3. Find your user name and check the **VPN Access** column. 
-      - If the column says **SSL**:  Your user is already set up with SSL access. 
-      - If the column says **None**: Your user is not set with SSL access. Follow the steps to set up VPN access for your user. 
-   4. Click **None**. 
-   5. From the **VPN Type** drop down list, select **SSL**. 
-   6. Click **Save**. 
-   7. Set a VPN password. 
-      1. Go to **Account** > **Users** > **User List**. 
-      2. Select your user name. 
-      3. Find the **VPN Password** field and enter your password. 
+   1. Log in to the [{{site.data.keyword.Bluemix_notm}} infrastructure](https://cloud.ibm.com/classic) portal. 
+   2. Select **Account** > **Access (IAM)**. 
+   3. Select your user name. 
+   4. On the **User details** tab, find the **VPN password** section. 
+   5. If no password is set yet, enter a VPN password. 
+   6. Copy the VPN user name as you need it later. 
 2. Install the VPN client on your local machine. 
    1. Install the Motion Pro Plus client on your local machine. See the instructions for [Linux](https://knowledgelayer.softlayer.com/procedure/ssl-vpn-linux), [macOS](https://knowledgelayer.softlayer.com/procedure/ssl-vpn-mac-os-x-1010), and [Windows](https://knowledgelayer.softlayer.com/procedure/ssl-vpn-windows) for more information for your operating system. 
    2. In your VPN connection profile, enter the following values. 
-      - **Site**: 
-      - **Host**: Choose one of the [data center VPN portals in {{site.data.keyword.Bluemix_notm}}](https://www.softlayer.com/VPN-Access) and retrieve their fully qualified domain name in the format `vpn.xxx.softlayer.com` by clicking the portal link.
-      - **Username**: 
+      - **Title**: Enter a name for your connection profile. You can enter any name that you want. 
+      - **Gateway**: Choose one of the [data center VPN portals in {{site.data.keyword.Bluemix_notm}}](https://www.softlayer.com/VPN-Access) and retrieve their fully qualified domain name in the format `vpn.xxx.softlayer.com` by clicking the portal link.
+      - **Username**: Enter the VPN user name that you noted earlier. 
 3. Upload an SSH key to the {{site.data.keyword.Bluemix_notm}} infrastructure portal. 
    1. Generate an SSH key. The SSH key is used to access IBM Cloud infrastructure resources during provisioning. Enter the email address that you want to associate with your SSH key. Make sure to accept the default file name, file location, and missing passphrase by pressing Enter.
       ```
@@ -522,6 +516,6 @@ To import the Terraform infrastructure inventory into Ansible:
       {: pre}
       
 8. Optional: Verify that the virtual server's private IP address in your Ansible inventory list matches the private IP address in your {{site.data.keyword.Bluemix_notm}} infrastructure dashboard. 
-   1. Log in to the [{{site.data.keyword.Bluemix_notm}} infrastructure dashboard](https://control.bluemix.net) and select **Devices** > **Device List**. 
+   1. Log in to the [{{site.data.keyword.Bluemix_notm}} infrastructure dashboard](https://cloud.ibm.com/classic) and select **Devices** > **Device List**. 
    2. Look for the virtual server instance that you created and make sure that the **Private IP** and the IP address that you retrieved from your Ansible inventory list are the same. 
       
