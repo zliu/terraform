@@ -49,7 +49,7 @@ To securely connect to your virtual machines over the private network with Ansib
    5. If no password is set yet, enter a VPN password. 
    6. Copy the VPN user name as you need it later. 
 2. Install the VPN client on your local machine. 
-   1. Install the Motion Pro Plus client on your local machine. See the instructions for [Linux](https://knowledgelayer.softlayer.com/procedure/ssl-vpn-linux), [macOS](https://knowledgelayer.softlayer.com/procedure/ssl-vpn-mac-os-x-1010), and [Windows](https://knowledgelayer.softlayer.com/procedure/ssl-vpn-windows) for more information for your operating system. 
+   1. Install the Motion Pro Plus client on your local machine. See the instructions for [Linux](https://knowledgelayer.softlayer.com/procedure/ssl-vpn-linux), [macOS](https://knowledgelayer.softlayer.com/procedure/ssl-vpn-mac-os-x-1010), and [Windows](https://knowledgelayer.softlayer.com/procedure/ssl-vpn-windows) for more information for your operating system. (the links are broken, and need update ASAP)
    2. In your VPN connection profile, enter the following values. 
       - **Title**: Enter a name for your connection profile. You can enter any name that you want. 
       - **Gateway**: Choose one of the [data center VPN portals in {{site.data.keyword.Bluemix_notm}}](https://www.softlayer.com/VPN-Access) and retrieve their fully qualified domain name in the format `vpn.xxx.softlayer.com` by clicking the portal link.
